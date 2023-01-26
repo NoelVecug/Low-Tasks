@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class RightmostDigit {
     public static void main(String[] args) {
         // Write a Java program that accepts three integers from the user
-        // and return true if two or more of them (integers ) have the same rightmost digit.
+        // and return greatest division if two or more of them (integers ) have the same rightmost digit.
         // The integers are non-negative.
 
         Scanner scanner = new Scanner(System.in);
