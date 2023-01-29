@@ -1,43 +1,37 @@
 package Task_6;
 
-import java.util.ArrayList;
+// Write a Java program to print numbers between 1 and 100
+// which are divisible by 3, 5 and by both.
+
+/*
+    Тут тот же самый вынос метода + вынос константного значения в константу
+    Тоже возьми себе на заметку не хардкодить числа в методах.
+    Любую хуйню взятую из воздуха всегда выноси в константу и называй ее соответствующим образом
+ */
 
 public class Divide {
+    private static final int FIRST_DIVISOR = 3;
+    private static final int SECOND_DIVISOR = 5;
+
     public static void main(String[] args) {
-        // Write a Java program to print numbers between 1 and 100
-        // which are divisible by 3, 5 and by both.
-        ArrayList<Integer> three = new ArrayList<>();
-        ArrayList<Integer> five = new ArrayList<>();
-        ArrayList<Integer> both = new ArrayList<>();
-        for (int i = 1; i <= 100; i++) {
-            if (i % 3 == 0) {
-                three.add(i);
-            }
-            if (i % 5 == 0) {
-                five.add(i);
-            }
-            if ((i % 3 == 0) && (i % 5 == 0)) {
-                both.add(i);
-            }
-        }
+        printDivisibleNumbers(1, 100);
+    }
 
-        System.out.println("Divided by 3:");
-        for (int i = 0; i < three.size() -1; i++) {
-            System.out.printf("%d, ", three.get(i));
+    private static void printDivisibleNumbers(int from, int to) {
+        for (int i = from; i <= to; i++) {
+            checkDivisionAndPrint(i);
         }
-        System.out.println(three.get(three.size()-1) + ".");
+    }
 
-        System.out.println("Divided by 5:");
-        for (int i = 0; i < five.size()-1; i++) {
-            System.out.printf("%d, ", five.get(i));
+    private static void checkDivisionAndPrint(int num) {
+        if ((num % FIRST_DIVISOR == 0) && (num % SECOND_DIVISOR == 0)) {
+            System.out.println(num + " is divisible by both divisors");
         }
-        System.out.println(five.get(five.size()-1) + ".");
-
-        System.out.println("Divided by 3 and 5:");
-        for (int i = 0; i < both.size()-1; i++) {
-            System.out.printf("%d, ", both.get(i));
+        if (num % FIRST_DIVISOR == 0) {
+            System.out.println(num + " is divisible by " + FIRST_DIVISOR);
         }
-        System.out.println(both.get(both.size()-1) + ".");
-
+        if (num % SECOND_DIVISOR == 0) {
+            System.out.println(num + " is divisible by " + SECOND_DIVISOR);
+        }
     }
 }
